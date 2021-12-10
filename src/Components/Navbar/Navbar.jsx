@@ -4,13 +4,13 @@ import "./Navbar.scss";
 
 export default function Navbar() {
 	return (
-		<nav class="navbar">
-			<Logo class="navbar__logo" />
-			<ul class="navbar__section">
-				<li class="navbar__section__item">Accueil</li>
-				<li class="navbar__section__item">Profil</li>
-				<li class="navbar__section__item">Réglages</li>
-				<li class="navbar__section__item">Communauté</li>
+		<nav className="navbar">
+			<Logo className="navbar__logo" />
+			<ul className="navbar__section">
+				<li className="navbar__section__item">Accueil</li>
+				<li className="navbar__section__item">Profil</li>
+				<li className="navbar__section__item">Réglages</li>
+				<li className="navbar__section__item">Communauté</li>
 			</ul>
 		</nav>
 	);

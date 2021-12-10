@@ -7,14 +7,14 @@ import React from "react";
 
 export default function Sidebar() {
 	return (
-		<nav class="sidebar">
-			<aside class="sidebar__navigation">
-				<YogaPicto class="sidebar__navigation__item" />
-				<SwimingPicto class="sidebar__navigation__item" />
-				<BodybuildingPicto class="sidebar__navigation__item" />
-				<BikingPicto class="sidebar__navigation__item" />
+		<nav className="sidebar">
+			<aside className="sidebar__navigation">
+				<YogaPicto className="sidebar__navigation__item" />
+				<SwimingPicto className="sidebar__navigation__item" />
+				<BodybuildingPicto className="sidebar__navigation__item" />
+				<BikingPicto className="sidebar__navigation__item" />
 			</aside>
-			<footer class="sidebar__copyright">Copyright, SportSee 2020</footer>
+			<footer className="sidebar__copyright">Copyright, SportSee 2020</footer>
 		</nav>
 	);
 }
