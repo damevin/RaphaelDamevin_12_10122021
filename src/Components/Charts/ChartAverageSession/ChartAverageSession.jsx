@@ -7,16 +7,14 @@ export default function ChartAverageSession({ userId }) {
 	const { data, loading } = useApiGet("GET_AVERAGE", userId);
 
 	if (data && !loading) {
-  console.log("====")
-  console.log(data)
-  console.log("====")
+  const sessions = data.data.sessions
 		return (
 			<div>
 				<h2>Durée moyenne des sessions</h2>
 				<LineChart
 					width={730}
 					height={250}
-					data={data.data.sessions}
+					data={sessions}
 					margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
 				>
 					<CartesianGrid strokeDasharray="3 3" />
