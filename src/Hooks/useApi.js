@@ -8,7 +8,6 @@ import { useState, useEffect } from "react";
 	* @returns {String}
 	*/
 const getQuery = (url, query, userId) => {
-	console.log(url, query, userId);
 	switch (query) {
 		case "GET_INFORMATIONS":
 			return `${url}/user/${userId}`;
