@@ -14,6 +14,8 @@ function getQueryByServices(service, userId) {
 			return `user/${userId}/activity`;
 		case "GET_PERFORMANCE":
 			return `user/${userId}/performance`;
+			case "GET_AVERAGE": 
+			return `user/${userId}/average-sessions`
 		case "GET_INFORMATIONS":
 			return `user/${userId}`;
 		default:
