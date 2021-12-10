@@ -3,16 +3,26 @@ import { useApiGet } from "../../Hooks/useApi";
 import { useParams } from "react-router-dom";
 import Header from "../../Components/Header/Header";
 import React from "react";
+import Error from "../../Containers/Error/Error";
+import ChartDailyActivity from "../../Components/Charts/ChartDailyActivity/ChartDailyActivity";
+import ChartAverageSession from "../../Components/Charts/ChartAverageSession/ChartAverageSession";
 
 export default function Home() {
 	const { id } = useParams();
-	const { data, error, loading } = useApiGet("GET_INFORMATIONS", id);
-
-	if (!loading && data) {
+	const { data, error, loading, status } = useApiGet("GET_INFORMATIONS", id);
+	console.log(data, status);
+	if (status === 404) {
+		return <Error />;
+	}
+	if (data && !loading) {
 		return (
 			<main className="home">
-				<span>{data.data.userInfos.firstName}</span>
-				<span>{data.data.userInfos.lastName}</span>
+				<Header
+					userFirstName={data.data.userInfos.firstName}
+					userLastName={data.data.userInfos.lastName}
+				/>
+				<ChartDailyActivity userId={id}></ChartDailyActivity>
+				<ChartAverageSession userId={id}></ChartAverageSession>
 			</main>
 		);
 	} else {
