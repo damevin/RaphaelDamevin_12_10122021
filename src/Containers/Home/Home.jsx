@@ -1,28 +1,29 @@
 import "./Home.scss";
 import { useApiGet } from "../../Hooks/useApi";
 import { useParams } from "react-router-dom";
+import ChartActivities from "../../Components/Charts/ChartActivities/ChartActivities";
+import ChartAverageSession from "../../Components/Charts/ChartAverageSession/ChartAverageSession";
+import ChartDailyActivity from "../../Components/Charts/ChartDailyActivity/ChartDailyActivity";
+import ChartScorePie from "../../Components/Charts/ChartScorePie/ChartScorePie";
+import Error from "../../Containers/Error/Error";
 import Header from "../../Components/Header/Header";
 import React from "react";
-import Error from "../../Containers/Error/Error";
-import ChartDailyActivity from "../../Components/Charts/ChartDailyActivity/ChartDailyActivity";
-import ChartAverageSession from "../../Components/Charts/ChartAverageSession/ChartAverageSession";
 
 export default function Home() {
 	const { id } = useParams();
-	const { data, error, loading, status } = useApiGet("GET_INFORMATIONS", id);
-	console.log(data, status);
-	if (status === 404) {
+	const { data, loading, status } = useApiGet("GET_INFORMATIONS", id);
+
+	if (loading) {
 		return <Error />;
 	}
-	if (data && !loading) {
+	if (!loading && data) {
 		return (
 			<main className="home">
-				<Header
-					userFirstName={data.data.userInfos.firstName}
-					userLastName={data.data.userInfos.lastName}
-				/>
+				<Header userFirstName={data.data.userInfos.firstName} />
 				<ChartDailyActivity userId={id}></ChartDailyActivity>
 				<ChartAverageSession userId={id}></ChartAverageSession>
+				<ChartScorePie userId={id}></ChartScorePie>
+				<ChartActivities userId={id}></ChartActivities>
 			</main>
 		);
 	} else {
