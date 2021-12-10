@@ -1,0 +1,15 @@
+@import "../../style/variables.scss";
+
+.header {
+	&__title {
+		font-size: 48px;
+  font-weight: 500;
+		line-height: 24px;
+		&__child {
+			color: $secondary;
+		}
+	}
+	&__subtitle {
+  margin-top: 41px;
+	}
+}
