@@ -1,6 +1,7 @@
 import "./Home.scss";
 import { useApiGet } from "../../Hooks/useApi";
 import { useParams } from "react-router-dom";
+import CardKeyInfos from "../../Components/CardKeyInfos/CardKeyInfos";
 import ChartActivities from "../../Components/Charts/ChartActivities/ChartActivities";
 import ChartAverageSession from "../../Components/Charts/ChartAverageSession/ChartAverageSession";
 import ChartDailyActivity from "../../Components/Charts/ChartDailyActivity/ChartDailyActivity";
@@ -24,6 +25,7 @@ export default function Home() {
 				<ChartAverageSession userId={id}></ChartAverageSession>
 				<ChartScorePie userId={id}></ChartScorePie>
 				<ChartActivities userId={id}></ChartActivities>
+				<CardKeyInfos userId={id}></CardKeyInfos>
 			</main>
 		);
 	} else {
