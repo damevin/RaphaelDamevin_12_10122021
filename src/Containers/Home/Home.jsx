@@ -21,11 +21,13 @@ export default function Home() {
 		return (
 			<main className="home">
 				<Header userFirstName={data.data.userInfos.firstName} />
-				<ChartDailyActivity userId={id}></ChartDailyActivity>
-				<ChartAverageSession userId={id}></ChartAverageSession>
-				<ChartScorePie userId={id}></ChartScorePie>
-				<ChartActivities userId={id}></ChartActivities>
-				<CardKeyInfos userId={id}></CardKeyInfos>
+				<section className="home__section">
+					<ChartDailyActivity className="dailyActivity" userId={id}></ChartDailyActivity>
+					<ChartAverageSession className="averageSession" userId={id}></ChartAverageSession>
+					<ChartScorePie userId={id}></ChartScorePie>
+					<ChartActivities userId={id}></ChartActivities>
+					<CardKeyInfos userId={id}></CardKeyInfos>
+				</section>
 			</main>
 		);
 	} else {
