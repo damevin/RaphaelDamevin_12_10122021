@@ -2,9 +2,11 @@
 	background: #fbfbfb;
 	border-radius: 5px;
 	box-shadow: 0px 2px 4px #00000005;
-	padding: 20px;
+
  grid-column: 3;
  grid-row: 2;
+	height: 100%;
+	width: 100%;
 
 	&__main {
 		position: relative;
