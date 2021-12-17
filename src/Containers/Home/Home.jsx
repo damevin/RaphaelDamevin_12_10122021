@@ -12,22 +12,26 @@ import React from "react";
 
 export default function Home() {
 	const { id } = useParams();
-	const { data, loading, status } = useApiGet("GET_INFORMATIONS", id);
-
+	const { data, loading, status, error } = useApiGet("GET_INFORMATIONS", id);
+	console.log(status);
 	if (loading) {
 		/* TO DO COMPOSANT LOADING */
+	}
+
+	if (status === 404) {
 		return <Error />;
 	}
+
 	if (!loading && data) {
 		return (
 			<main className="home">
 				<Header userFirstName={data.data.userInfos.firstName} />
 				<section className="home__section">
-					<ChartDailyActivity className="dailyActivity" userId={id}></ChartDailyActivity>
-					<ChartAverageSession className="averageSession" userId={id}></ChartAverageSession>
-					<ChartScorePie userId={id}></ChartScorePie>
-					<ChartActivities userId={id}></ChartActivities>
-					<CardKeyInfos userId={id}></CardKeyInfos>
+					<ChartDailyActivity className="dailyActivity" userId={id} />
+					<ChartAverageSession className="averageSession" userId={id} />
+					<ChartScorePie userId={id} />
+					<ChartActivities userId={id} />
+					<CardKeyInfos userId={id} />
 				</section>
 			</main>
 		);
