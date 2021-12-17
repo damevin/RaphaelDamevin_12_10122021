@@ -1,0 +1,27 @@
+.cardKeys {
+	align-items: center;
+	background: #fbfbfb;
+	border-radius: 5px;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+	display: flex;
+	padding: 32px;
+	transition: transform 300ms ease-in-out;
+	cursor: pointer;
+	&:hover {
+		transform: scale(1.06);
+	}
+	&__section {
+		display: flex;
+		flex-direction: column;
+	}
+	&__value {
+		font-size: 20px;
+		font-weight: bold;
+		line-height: 24px;
+		padding: 0px 0px 5px 20px;
+	}
+	&__type {
+		font-size: 14px;
+		padding: 0px 0px 0px 20px;
+	}
+}
