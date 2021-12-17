@@ -1,0 +1,13 @@
+@import "src/style/variables.scss";
+
+.tooltip {
+	background: $secondary;
+ color: white;
+ display: flex;
+ flex-direction: column;
+ font-size: 10px ;
+ height: 60px;
+ justify-content: space-around;
+ padding: 8px 5px;
+ text-align: center;
+}
