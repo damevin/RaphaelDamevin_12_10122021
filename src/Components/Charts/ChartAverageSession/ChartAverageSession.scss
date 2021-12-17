@@ -3,21 +3,21 @@
 .chart {
 	&__averageSession {
 		background: $secondary;
-		position: relative;
 		border-radius: 5px;
 		color: white;
 		grid-column: 1;
 		grid-row: 2;
 		height: 100%;
+		position: relative;
 		width: 100%;
 		&__title {
-			position: absolute;
-			top: 1.5rem;
-			left: 2rem;
 			color: #ffffff;
 			font-size: 15px;
 			font-weight: 500;
+			left: 2rem;
 			opacity: 0.5;
+			position: absolute;
+			top: 1.5rem;
 		}
 	}
 }
