@@ -1,5 +1,5 @@
 import React from "react";
-import { Cell, Pie, PieChart } from "recharts";
+import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 import { useApiGet } from "../../../Hooks/useApi";
 import "./ChartScorePie.scss";
 
@@ -13,33 +13,31 @@ export default function ChartScorePie({ userId }) {
 			{ name: "inProgress", value: 1 - dailyScore, fillColor: "transparent" },
 		];
 		return (
-			<div className="chart__score">
-				<h3 className="chart__score__title">Score</h3>
-				<main className="chart__score__main">
-					<PieChart width={150} height={150}>
+			<div className="chart__scorePie">
+				<ResponsiveContainer width="100%" height="100%">
+					<PieChart width={160} height={160}>
 						<Pie
 							data={dailyData}
 							dataKey="value"
 							innerRadius={70}
 							outerRadius={80}
 							startAngle={90}
-							endAngle={460}
+							endAngle={450}
 							paddingAngle={5}
-							cx={"50%"}
-							cy={"50%"}
 						>
 							{dailyData.map((entry, index) => (
 								<Cell key={`${index}`} fill={entry.fillColor} cornerRadius="50%" className="chart__pie" />
 							))}
 						</Pie>
 					</PieChart>
-					<section className="chart__score__legend">
-						<p className="chart__score__legend__details">
-							<span>{dailyScore * 100}%</span>
-							<br /> de votre objectif
-						</p>
-					</section>
-				</main>
+				</ResponsiveContainer>
+				<section className="chart__scorePie__legend">
+					<span className="chart__scorePie__legend__percent">{dailyScore * 100}%</span>
+					<span className="chart__scorePie__legend__details">
+						de votre
+						<br /> objectif
+					</span>
+				</section>
 			</div>
 		);
 	} else {
