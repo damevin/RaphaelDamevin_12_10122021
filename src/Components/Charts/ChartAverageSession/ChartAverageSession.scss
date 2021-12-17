@@ -1,4 +1,11 @@
+@import "src/style/variables.scss";
+
 .chart__averageSession {
- grid-row: 2;
- grid-column: 1;
+	background: $secondary;
+	border-radius: 5px;
+	color: white;
+	grid-column: 1;
+	grid-row: 2;
+	height: 100%;
+ width: 100%;
 }

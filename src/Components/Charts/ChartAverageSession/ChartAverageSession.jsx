@@ -1,5 +1,14 @@
 import "./ChartAverageSession.scss";
-import { LineChart, CartesianGrid, XAxis, YAxis, Line, Legend, Tooltip } from "recharts";
+import {
+	LineChart,
+	CartesianGrid,
+	XAxis,
+	YAxis,
+	Line,
+	Legend,
+	Tooltip,
+	ResponsiveContainer,
+} from "recharts";
 import { useApiGet } from "../../../Hooks/useApi";
 import React from "react";
 
@@ -11,14 +20,25 @@ export default function ChartAverageSession({ userId }) {
 		return (
 			<div className="chart__averageSession">
 				<h2>Durée moyenne des sessions</h2>
-				<LineChart width={250} height={180} data={sessions}>
-					<CartesianGrid strokeDasharray="3 3" />
-					<XAxis dataKey="day" />
-					<YAxis dataKey="sessionLength" />
-					<Tooltip />
-					<Legend />
-					<Line type="monotone" dataKey="sessionLength" stroke="#8884d8" />
-				</LineChart>
+				<ResponsiveContainer height="100%" width="100%">
+					<LineChart data={sessions} outerRadius="75%">
+						<CartesianGrid strokeDasharray="3 3" />
+						<XAxis
+							dataKey="day"
+							stroke="rgba(255, 255, 255, 0.6)"
+							axisLine={false}
+							dy={10}
+							tick={{
+								fontSize: 12,
+								fontWeight: 500,
+							}}
+							tickLine={false}
+						/>
+						<YAxis dataKey="sessionLength" domain={[0, "dataMax + 60"]} hide={true} />
+						<Tooltip />
+						<Line dataKey="sessionLength" stroke="#8884d8" type="monotone" />
+					</LineChart>
+				</ResponsiveContainer>
 			</div>
 		);
 	} else {
