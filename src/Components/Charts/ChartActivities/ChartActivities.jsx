@@ -1,28 +1,41 @@
 import "./ChartActivities.scss";
-import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
+import { PolarAngleAxis, PolarRadiusAxis, PolarGrid, Radar, RadarChart } from "recharts";
 import { useApiGet } from "../../../Hooks/useApi";
 
 import React from "react";
-
-const activities = ["Intensité", "Vitesse", "Force", "Endurance", "Energie", "Cardio"];
 
 export default function ChartActivities({ userId }) {
 	const { data, loading } = useApiGet("GET_PERFORMANCE", userId);
 
 	if (data && !loading) {
-		const userData = data.data.data;
-		console.log(userData, "*****");
+		const uppercaseFormatter = (str) => {
+			return (str + "").charAt(0).toLocaleUpperCase() + str.substr(1);
+		};
+
+		const formatKindOfData = (tickItem) => {
+			return uppercaseFormatter(data.data.kind[tickItem]);
+		};
 
 		return (
-			<div>
-				<RadarChart outerRadius={90} width={730} height={250} data={userData}>
-					<PolarGrid />
-					<PolarAngleAxis dataKey="kind" />
-					<Radar name="Mike" dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+			<div className="chart__activities">
+				<RadarChart outerRadius={70} width={250} height={200} data={data.data.data}>
+					<PolarGrid radialLines={false} />
+					<PolarAngleAxis
+						dataKey="kind"
+						stroke="white"
+						tickLine={false}
+						tickFormatter={formatKindOfData}
+						tick={{
+							fontSize: 9,
+							fontWeight: 500,
+						}}
+					/>
+					<PolarRadiusAxis domain={[0, 300]} tick={false} axisLine={false} tickCount={6} />
+					<Radar dataKey="value" stroke="#FF0101B2" fill="#FF0101B2" fillOpacity={0.6} />
 				</RadarChart>
 			</div>
 		);
 	} else {
-		return <p>Loading</p>;
+		return <p>LOADING....</p>;
 	}
 }
