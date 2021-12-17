@@ -3,7 +3,7 @@ import "./ChartDailyActivity.scss";
 import { Bar, BarChart, CartesianGrid, Tooltip, XAxis, YAxis, ResponsiveContainer } from "recharts";
 import { ReactComponent as Dot } from "./dot.svg";
 import { useApiGet } from "../../../Hooks/useApi";
-import CustomTooltip from "./Tooltip/CustomTooltip";
+import ChartDailyActivityTooltip from "./Tooltip/ChartDailyActivityTooltip";
 import Error from "../../../Containers/Error/Error";
 import React from "react";
 
@@ -58,7 +58,7 @@ export default function ChartDailyActivity({ userId }) {
 						/>
 						<YAxis dataKey="calories" domain={[0, "dataMax + 50"]} hide={true} yAxisId="cal" />
 						<Tooltip
-							content={<CustomTooltip />}
+							content={<ChartDailyActivityTooltip />}
 							cursor={{
 								fill: "rgba(0, 0, 0, 0.1)",
 							}}
