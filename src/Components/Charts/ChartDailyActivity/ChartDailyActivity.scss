@@ -1,1 +1,6 @@
 @import "../../../style/variables.scss";
+
+.chart__dailyActivity {
+ grid-column: span 3;
+ grid-row: 1;
+}
