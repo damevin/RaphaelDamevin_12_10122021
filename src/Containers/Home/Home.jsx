@@ -1,7 +1,7 @@
 import "./Home.scss";
 import { useApiGet } from "../../Hooks/useApi";
 import { useParams } from "react-router-dom";
-import CardKeyInfos from "../../Components/CardKeyInfos/CardKeyInfos";
+import CardsGrid from "../../Components/Cards/CardsGrid";
 import ChartActivities from "../../Components/Charts/ChartActivities/ChartActivities";
 import ChartAverageSession from "../../Components/Charts/ChartAverageSession/ChartAverageSession";
 import ChartDailyActivity from "../../Components/Charts/ChartDailyActivity/ChartDailyActivity";
@@ -12,14 +12,13 @@ import React from "react";
 
 export default function Home() {
 	const { id } = useParams();
-	const { data, loading, status, error } = useApiGet("GET_INFORMATIONS", id);
-	console.log(status);
+	const { data, loading, status, statusText, error } = useApiGet("GET_INFORMATIONS", id);
 	if (loading) {
 		/* TO DO COMPOSANT LOADING */
 	}
 
 	if (status === 404) {
-		return <Error />;
+		return <Error details={statusText} />;
 	}
 
 	if (!loading && data) {
@@ -31,11 +30,11 @@ export default function Home() {
 					<ChartAverageSession className="averageSession" userId={id} />
 					<ChartScorePie userId={id} />
 					<ChartActivities userId={id} />
-					<CardKeyInfos userId={id} />
+					<CardsGrid userId={id} />
 				</section>
 			</main>
 		);
 	} else {
-		return <></>;
+		return <Error details={statusText} />;
 	}
 }
