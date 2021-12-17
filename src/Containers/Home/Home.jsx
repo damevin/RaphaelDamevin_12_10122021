@@ -15,6 +15,7 @@ export default function Home() {
 	const { data, loading, status } = useApiGet("GET_INFORMATIONS", id);
 
 	if (loading) {
+		/* TO DO COMPOSANT LOADING */
 		return <Error />;
 	}
 	if (!loading && data) {

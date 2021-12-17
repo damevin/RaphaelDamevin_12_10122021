@@ -1,10 +1,10 @@
 .home {
 	margin-left: 117px;
-	padding: 68px 108px;
+	padding: 38px 108px;
 	&__section {
 		display: grid;
 		gap: 28px;
-		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: repeat(2, .5fr);
+		grid-template-columns: repeat(4, 221px);
+		grid-template-rows: 260px 203px;
 	}
 }
