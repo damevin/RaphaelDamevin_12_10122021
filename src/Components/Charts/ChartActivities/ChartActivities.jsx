@@ -1,6 +1,8 @@
 import "./ChartActivities.scss";
 import { PolarAngleAxis, PolarRadiusAxis, PolarGrid, Radar, RadarChart } from "recharts";
 import { useApiGet } from "../../../Hooks/useApi";
+import Loader from "../../Loader/Loader";
+import PropTypes from "prop-types";
 
 import React from "react";
 
@@ -44,6 +46,14 @@ export default function ChartActivities({ userId }) {
 			</div>
 		);
 	} else {
-		return <p>LOADING....</p>;
+		return (
+			<div className="chart__activities">
+				<Loader />
+			</div>
+		);
 	}
 }
+
+ChartActivities.propTypes = {
+	userId: PropTypes.string.isRequired,
+};

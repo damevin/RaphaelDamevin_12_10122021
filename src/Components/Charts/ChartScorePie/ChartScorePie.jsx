@@ -1,7 +1,9 @@
-import React from "react";
+import "./ChartScorePie.scss";
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 import { useApiGet } from "../../../Hooks/useApi";
-import "./ChartScorePie.scss";
+import Loader from "../../Loader/Loader";
+import PropTypes from "prop-types";
+import React from "react";
 
 export default function ChartScorePie({ userId }) {
 	const { data, loading } = useApiGet("GET_INFORMATIONS", userId);
@@ -41,6 +43,14 @@ export default function ChartScorePie({ userId }) {
 			</div>
 		);
 	} else {
-		return <p>Loading..</p>;
+		return (
+			<div className="chart__scorePie">
+				<Loader />
+			</div>
+		);
 	}
 }
+
+ChartScorePie.propTypes = {
+	userId: PropTypes.string.isRequired,
+};

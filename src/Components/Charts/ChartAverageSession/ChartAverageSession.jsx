@@ -2,6 +2,8 @@ import "./ChartAverageSession.scss";
 import { LineChart, XAxis, YAxis, Line, Tooltip, ResponsiveContainer } from "recharts";
 import { useApiGet } from "../../../Hooks/useApi";
 import ChartAverageSessionTooltip from "./Tooltip/ChartAverageSessionTooltip.jsx";
+import Loader from "../../Loader/Loader";
+import PropTypes from "prop-types";
 import React from "react";
 
 export default function ChartAverageSession({ userId }) {
@@ -52,7 +54,14 @@ export default function ChartAverageSession({ userId }) {
 			</div>
 		);
 	} else {
-		/* TO DO : Composant qui affiche le chargement */
-		return <span>Loading...</span>;
+		return (
+			<div className="chart__averageSession">
+				<Loader />
+			</div>
+		);
 	}
 }
+
+ChartAverageSession.propTypes = {
+	userId: PropTypes.string.isRequired,
+};

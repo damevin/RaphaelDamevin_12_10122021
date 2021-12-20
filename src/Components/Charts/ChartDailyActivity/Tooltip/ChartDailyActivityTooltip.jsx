@@ -1,8 +1,8 @@
 import "./ChartDailyActivityTooltip.scoped.scss";
-
+import PropTypes from "prop-types";
 import React from "react";
 
-export default function CustomTooltip({ payload, active, label }) {
+export default function CustomTooltip({ payload, active }) {
 	if (active && payload && payload.length) {
 		return (
 			<div className="tooltip__dailyActivity">
@@ -14,3 +14,8 @@ export default function CustomTooltip({ payload, active, label }) {
 		return null;
 	}
 }
+
+CustomTooltip.propTypes = {
+	payload: PropTypes.array,
+	active: PropTypes.bool,
+};

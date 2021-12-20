@@ -4,7 +4,8 @@ import { Bar, BarChart, CartesianGrid, Tooltip, XAxis, YAxis, ResponsiveContaine
 import { ReactComponent as Dot } from "./dot.svg";
 import { useApiGet } from "../../../Hooks/useApi";
 import ChartDailyActivityTooltip from "./Tooltip/ChartDailyActivityTooltip";
-import Error from "../../../Containers/Error/Error";
+import Loader from "../../Loader/Loader";
+import PropTypes from "prop-types";
 import React from "react";
 
 export default function ChartDailyActivity({ userId }) {
@@ -19,11 +20,11 @@ export default function ChartDailyActivity({ userId }) {
 					<h3 className="chart__header__title">Activité quotidienne</h3>
 					<section className="chart__header__section">
 						<span className="chart__header__section__item">
-							<Dot style={{ padding: "0px 5px" }} fill="#282D30"></Dot>
+							<Dot style={{ padding: "0px 5px" }} fill="#282D30" />
 							Poids (kg)
 						</span>
 						<span className="chart__header__section__item">
-							<Dot style={{ padding: "0px 5px" }} fill="#E60000"></Dot>
+							<Dot style={{ padding: "0px 5px" }} fill="#E60000" />
 							Calories brûlées (kCal)
 						</span>
 					</section>
@@ -70,6 +71,14 @@ export default function ChartDailyActivity({ userId }) {
 			</div>
 		);
 	} else {
-		return <Error />;
+		return (
+			<div className="chart__dailyActivity">
+				<Loader />
+			</div>
+		);
 	}
 }
+
+ChartDailyActivity.propTypes = {
+	userId: PropTypes.string.isRequired,
+};

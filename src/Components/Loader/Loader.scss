@@ -1,0 +1,9 @@
+@import "src/style/keyframes.scss";
+
+.loader {
+	-webkit-animation: color-change-2x 1s linear infinite alternate both;
+	animation: color-change-2x 1s linear infinite alternate both;
+	border-radius: 5px;
+	height: 100%;
+	width: 100%;
+}
