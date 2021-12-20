@@ -4,12 +4,10 @@
 	background: $primary;
 	display: flex;
 	flex-direction: column;
-	position: absolute;
  align-items: center;
- bottom:0;
+ grid-column: 1;
+ grid-row: 2;
  justify-content: flex-end;
- top:91px;
- width: 117px;
 	&__navigation {
 		display: flex;
 		flex-direction: column;

@@ -1,10 +1,15 @@
+@import "src/style/variables.scss";
+
 .home {
-	margin-left: 117px;
+	margin-left: 15px;
 	padding: 38px 108px;
+	grid-column: 2;
+	grid-row: 2;
 	&__section {
 		display: grid;
 		gap: 28px;
-		grid-template-columns: repeat(4, 251px);
+		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: 260px 203px;
+		margin-top: 10px;
 	}
 }
