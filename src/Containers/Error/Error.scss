@@ -1,12 +1,13 @@
 .error {
-	margin-left: 117px;
+	font-size: 80px;
+	line-height: 70px;
+	height: 500px;
+	margin-left: 67px;
 	padding: 68px 108px;
-	font-size: 30px;
-
 	&__description {
 		background: red;
 		color: white;
 		font-size: 12px;
-  padding: 10px 20px;
+		padding: 10px 20px;
 	}
 }
