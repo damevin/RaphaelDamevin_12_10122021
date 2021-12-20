@@ -4,7 +4,6 @@ import CardKeyInfos from "../CardKeyInfos/CardKeyInfos";
 import React from "react";
 
 export default function Cards({ userId }) {
-	console.log("userId", userId);
 	const { data } = useApiGet("GET_KEYS", userId);
 
 	if (data) {

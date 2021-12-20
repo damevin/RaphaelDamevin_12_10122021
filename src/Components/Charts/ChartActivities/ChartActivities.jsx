@@ -8,12 +8,20 @@ export default function ChartActivities({ userId }) {
 	const { data, loading } = useApiGet("GET_PERFORMANCE", userId);
 
 	if (data && !loading) {
+		/**
+		 * @param {string} str - Content to be uppercased
+		 * @returns {string} str with first letter uppercased
+		 */
 		const uppercaseFormatter = (str) => {
 			return (str + "").charAt(0).toLocaleUpperCase() + str.substr(1);
 		};
 
-		const formatKindOfData = (tickItem) => {
-			return uppercaseFormatter(data.data.kind[tickItem]);
+		/**
+		 * @param {number} tickIndex - Index of the tick
+		 * @returns {string} Formated tick value uppercased
+		 */
+		const formatKindOfData = (tickIndex) => {
+			return uppercaseFormatter(data.data.kind[tickIndex]);
 		};
 
 		return (

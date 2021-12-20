@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 
+/**
+ * URL to change when production API will be up
+ */
 const API = "http://localhost:3001";
 
 /**
  * Factory for retrive valid query depends on his service
- * @param {*} service
- * @param {*} userId
- * @returns
+ * @param {String} service - Service to call
+ * @param {String} userId - User id
+ * @returns {String} url for making api calls
  */
 function getQueryByServices(service, userId) {
 	switch (service) {
@@ -27,8 +30,9 @@ function getQueryByServices(service, userId) {
 
 /**
  * Custom hook for get data from an API
- * @param {String} url | URL where we fetch data
- * @returns {Object}
+ * @param {String} service - Service to call
+ * @param {String} userId - User Id
+ * @returns {Object} Call results
  */
 export const useApiGet = (service, userId) => {
 	const [status, setStatus] = useState(0);
