@@ -1,5 +1,6 @@
-import React from "react";
 import "./Error.scss";
+import PropTypes from "prop-types";
+import React from "react";
 
 export default function Error({ details }) {
 	return (
@@ -9,3 +10,7 @@ export default function Error({ details }) {
 		</div>
 	);
 }
+
+Error.propTypes = {
+	details: PropTypes.string,
+};

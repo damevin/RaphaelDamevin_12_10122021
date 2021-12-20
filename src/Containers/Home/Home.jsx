@@ -8,17 +8,18 @@ import ChartDailyActivity from "../../Components/Charts/ChartDailyActivity/Chart
 import ChartScorePie from "../../Components/Charts/ChartScorePie/ChartScorePie";
 import Error from "../../Containers/Error/Error";
 import Header from "../../Components/Header/Header";
+import Loader from "../../Components/Loader/Loader";
 import React from "react";
 
 export default function Home() {
 	const { id } = useParams();
 	const { data, loading, status, statusText, error } = useApiGet("GET_INFORMATIONS", id);
 	if (loading) {
-		/* TO DO COMPOSANT LOADING */
+		return <Loader />;
 	}
 
 	if (status === 404) {
-		return <Error details={statusText} />;
+		return <Error details={statusText}/>;
 	}
 
 	if (!loading && data) {
